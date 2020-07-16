@@ -37,8 +37,8 @@ Plugin 'chrisbra/csv.vim'				" View CSV files nicely
 Plugin 'scrooloose/nerdtree'				" File Explorer
 Plugin 'Xuyuanp/nerdtree-git-plugin'			" Show github status flags in Nerdtree
 Plugin 'mhinz/vim-startify'				" vim start screen
-Plugin 'ysm-core/YouCompleteMe' 			" Code autocompletion
-
+Plugin 'neoclide/coc.nvim'				" Autocompletion
+Plugin 'preservim/nerdcommenter'			" Commenting
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -59,9 +59,25 @@ set background=dark
 syntax on
 colorscheme onedark
 
+function! CocCurrentFunction()
+	return get(b:, 'coc_current_function', '')
+endfunction
+
 let g:lightline = {
 	\ 'colorscheme': 'one',
+	\ 'active': {
+	\	'left': [ [ 'mode', 'paste' ],
+	\		  [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+	\
+	\ },
+	\ 'component_function': {
+	\	'cocstatus': 'coc#status',
+	\	'currentfunction': 'CocCurrentFunction'
+	\ },
 	\ }
+
 set nu
 set shortmess=F
 set noshowmode
+set mouse=a
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
