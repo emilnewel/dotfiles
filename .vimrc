@@ -111,9 +111,9 @@ function! MyFiletype()
 endfunction
 
 function! LightlineFilename()
-	let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-	let filetype = MyFiletype()
-	return filename . ' - ' . filetype
+	 let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+	 let filetype = MyFiletype()
+	 return filename . ' - ' . filetype
 endfunction
 
 " Function for showing git branch in lightline with fugitive.
