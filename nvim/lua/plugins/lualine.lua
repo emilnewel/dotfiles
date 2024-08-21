@@ -3,7 +3,10 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("lualine").setup({
-			tabline = {
+			options = {
+				theme = "mellow",
+			},
+			sections = {
 				lualine_b = {
 					"diff",
 					"branch",
