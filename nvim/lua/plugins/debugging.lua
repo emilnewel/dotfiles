@@ -46,7 +46,7 @@ return {
 							},
 						},
 						position = "left",
-						size = 40,
+						size = 100,
 					},
 					{
 						elements = {

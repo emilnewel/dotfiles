@@ -83,6 +83,10 @@ return {
 				cmd = { "omnisharp", "--languageserver" },
 			})
 
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
+
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 			vim.keymap.set("n", "gd", tbi.lsp_definitions, { desc = "Go to [D]efinition" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code [A]ction" })

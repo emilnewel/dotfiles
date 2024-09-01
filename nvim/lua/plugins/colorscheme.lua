@@ -39,8 +39,16 @@ return {
 		"mellow-theme/mellow.nvim",
 		lazy = false,
 		priority = 1000,
+		-- config = function()
+		-- 	vim.cmd.colorscheme("mellow")
+		-- end,
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("mellow")
+			vim.cmd.colorscheme("kanagawa-dragon")
 		end,
 	},
 }
