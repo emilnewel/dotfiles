@@ -1,10 +1,6 @@
 local map = vim.keymap.set
 map("n", "<leader>n", "<cmd>:Neotree filesystem toggle right<CR>", { desc = "Toggle [N]eotree" })
 map("n", "<ESC>", "<cmd>nohlsearch<CR>")
-map("i", "jk", "<ESC>")
-map("i", "kj", "<ESC>")
-map("i", "jj", "<ESC>")
-map("i", "kk", "<ESC>")
 
 -- Diagnostics
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })

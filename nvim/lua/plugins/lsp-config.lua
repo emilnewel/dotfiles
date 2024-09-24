@@ -26,9 +26,8 @@ return {
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.prettierd.with({
-						filetypes = { "toml", "json", "css", "yaml", "html", "javascript", "typescript" },
-					}),
+					null_ls.builtins.formatting.prettier,
+					null_ls.builtins.formatting.ruff,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
@@ -63,7 +62,7 @@ return {
 					python = {
 						analysis = {
 							-- Ignore all files for analysis to exclusively use Ruff for linting
-							ignore = { "*" },
+							-- ignore = { "*" },
 						},
 					},
 				},
@@ -81,6 +80,12 @@ return {
 			lspconfig.omnisharp.setup({
 				capabilities = capabilities,
 				cmd = { "omnisharp", "--languageserver" },
+			})
+			lspconfig.tsserver.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
 			})
 
 			lspconfig.gopls.setup({
